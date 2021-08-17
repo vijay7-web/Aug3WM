@@ -26,7 +26,7 @@ function App() {
   ] );
 
   useEffect(() => {
-    Axios.get("http://universities.hipolabs.com/search?country=United+States")
+    Axios.get("http://localhost:3003/api/get")
     .then(response => {
         setList(response.data);
     })
@@ -34,7 +34,7 @@ function App() {
 
   const submitSearch = () => {
       Axios.post("http://localhost:3003/post",
-      {
+      { 
         country : country,
         domains : domain,
         alpha_two_code : alphaCode,
@@ -81,7 +81,7 @@ function App() {
         <button onClick = {submitSearch}>Submit</button>
       </div> */}
       {collegeList.map((val) => {
-          return <h1>{val.name}</h1>;
+          return <h1>{val.universityname}</h1>;
       })}
     </div>
   );
